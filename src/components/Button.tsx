@@ -1,13 +1,26 @@
 import React from 'react';
 import styled from 'styled-components'
 
+type Props = {
+    label: string;
+    position?: [x: number, y: number];
+    width?: number;
+}
 const StyledButton = styled.button`
-
+    background: #FFBFCE;
+    border: none;
+    border-radius: 8px;
+    font-size: 24px;
 `;
 
-const Button: React.FC = () => {
+const Button: React.FC<Props> = ({ label, position, width }) => {
+    const styles: React.CSSProperties = {};
+    if (position) {
+        styles.gridColumnStart = position[0]
+        styles.gridRowStart = position[0]
+    }
     return (
-        <StyledButton>1</StyledButton>
+        <StyledButton style={styles}>{label}</StyledButton>
     )
 }
 
