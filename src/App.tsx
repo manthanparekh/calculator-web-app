@@ -4,7 +4,7 @@ import './App.css';
 import Calculator from './components/Calculator';
 
 const Container = styled.div`
-  background: #447AC4;
+  background: #000407;
   display: flex;
   flex-direction: column;
   min-height: 100vh;

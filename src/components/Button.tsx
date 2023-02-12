@@ -7,7 +7,7 @@ type Props = {
     width?: number;
 }
 const StyledButton = styled.button`
-    background: #FFBFCE;
+    background: #12b4eb;
     border: none;
     border-radius: 8px;
     font-size: 24px;
@@ -16,8 +16,12 @@ const StyledButton = styled.button`
 const Button: React.FC<Props> = ({ label, position, width }) => {
     const styles: React.CSSProperties = {};
     if (position) {
-        styles.gridColumnStart = position[0]
-        styles.gridRowStart = position[0]
+        styles.gridColumnStart = position[0] + 1; 
+        styles.gridRowStart = position[1] + 1;
+    }
+
+    if (width) {
+        styles.gridColumnEnd = `span ${width}`;
     }
     return (
         <StyledButton style={styles}>{label}</StyledButton>
