@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import
-=======
 export enum InputType {
     Numerical, 
     Operation,
@@ -31,4 +28,3 @@ const Calc = {
 }
 
 export default Calc;
->>>>>>> code-update-3
