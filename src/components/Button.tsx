@@ -13,7 +13,7 @@ type Props = {
     width?: number;
 }
 const StyledButton = styled.button`
-    background: #F273E6;
+    background: #F0EAD2;
     color: #000;
     border: none;
     border-radius: 8px;
@@ -33,7 +33,7 @@ const Button: React.FC<Props> = ({ type = ButtonType.Operation , label, position
 
     if (type === ButtonType.Number) {
         styles.color = '#000';
-        styles.background = '#00F5FF';
+        styles.background = '#ADC178';  
     }
     return (
         <StyledButton style={styles}>{label}</StyledButton>
