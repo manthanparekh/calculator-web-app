@@ -13,14 +13,14 @@ export enum OperatorType {
 
 export type CalcInput =
     | { type: InputType.Numerical; value: number }
-    | { type: InputType.Operator; operator: OperatorType };
+    | { type: InputType.Operator; operator: OperationType };
 
 export type CalcState = {
     displayValue: number;
 }
 
 export type Operation = {
-    operator: OperatorType; 
+    operator: OperationType; 
     value: number;
 }
 
@@ -39,10 +39,10 @@ const getOperationsBuilder = (inputs: Array<CalcInput>): OperationsBuilder => {
                     return { ...builder, working: { ...builder.working, value: newValue } };
             
                 case InputType.Operator:
-                    if (input.operator === OperatorType.Equals) {
+                    if (input.operator === OperationType.Equals) {
                         return {
-                            operations: [...builder.operations, builder.working, {operator: OperatorType.Equals, value: 0}],
-                            working: { operator: OperatorType.Add, value: 0 },
+                            operations: [...builder.operations, builder.working, {operator: OperationType.Equals, value: 0}],
+                            working: { operator: OperationType.Add, value: 0 },
                         };
                     } else {
                         return {
@@ -54,7 +54,7 @@ const getOperationsBuilder = (inputs: Array<CalcInput>): OperationsBuilder => {
         },
         {
             operations: [],
-            working: { operator: OperatorType.Add, value: 0 },
+            working: { operator: OperationType.Add, value: 0 },
         } 
     );
 };
@@ -62,18 +62,17 @@ const getOperationsBuilder = (inputs: Array<CalcInput>): OperationsBuilder => {
 const getTotal = (operations: Array<Operation>): number =>
     operations.reduce<number>((sum, operation) => {
         switch (operation.operator) {
-            case OperatorType.Add:
+            case OperationType.Add:
                 return sum + operation.value;
-            case OperatorType.Subtract:
+            case OperationType.Subtract:
                 return sum - operation.value;
-            case OperatorType.Multiply:
+            case OperationType.Multiply:
                 return sum * operation.value;
-            case OperatorType.Divide:
-                return sum / operation.value;
-            case OperatorType.Equals:
-                return sum;
-        }
-    }, 0);
+            case OperationType.Divide:
+                return divide / operation.value;
+            case OperationType.Equals:
+                return 
+    });
 
 const getState = (inputs: Array<CalcInput>): CalcState => {
     const builder = getOperationsBuilder(inputs); 
@@ -82,7 +81,7 @@ const getState = (inputs: Array<CalcInput>): CalcState => {
     if (!lastOperation) return { displayValue: 0 }
 
     switch (lastOperation.operator) {
-        case OperatorType.Equals: 
+        case OperationType.Equals: 
             const total = operations.reduce<number>((sum, operation) => sum + operation.value, 0);
             return { displayValue: getTotal(operations) };
         default:

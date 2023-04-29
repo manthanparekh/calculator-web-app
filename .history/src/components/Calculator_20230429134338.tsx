@@ -22,7 +22,7 @@ const Display = styled.div`
 `;
 
 const Calculator: React.FC<{}> = () => {
-    const [inputs, setInputs] = useState<Array<CalcInput>([]);
+    const [inputs, setInputs] = useState <Array<CalcInput>([]);
     const state = Calc.getState(inputs);
     return (
         <Container>

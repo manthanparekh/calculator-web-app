@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Button, {ButtonType} from './Button';
-import { CalcInput } from '../modules/calc';
 
 const Container = styled.div``;
 
@@ -22,12 +21,10 @@ const Display = styled.div`
 `;
 
 const Calculator: React.FC<{}> = () => {
-    const [inputs, setInputs] = useState<Array<CalcInput>([]);
-    const state = Calc.getState(inputs);
     return (
         <Container>
             <Grid>
-                <Display>{state.displayValue}</Display>
+                <Display />
                 <Button label="AC" position={[0, 1]} />
                 <Button label="Undo" position={[1, 1]} width={2} />
                 <Button label="/" position={[3, 1]} />
