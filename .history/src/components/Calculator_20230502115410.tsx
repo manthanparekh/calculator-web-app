@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button, {ButtonType} from './Button';
-import Calc, { CalcInput } from '../modules/calc';
+import { Calc , CalcInput } from '../modules/calc';
 
 
 const Container = styled.div``;

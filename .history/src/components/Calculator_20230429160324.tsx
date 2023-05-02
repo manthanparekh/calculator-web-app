@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button, {ButtonType} from './Button';
-import Calc, { CalcInput } from '../modules/calc';
-
+import { CalcInput } from '../modules/calc';
 
 const Container = styled.div``;
 
@@ -23,7 +22,7 @@ const Display = styled.div`
 `;
 
 const Calculator: React.FC<{}> = () => {
-    const [inputs, setInputs] = useState<Array<CalcInput>>([]);
+    const [inputs, setInputs] = useState<Array<CalcInput>([]);
     const state = Calc.getState(inputs);
     return (
         <Container>
@@ -36,23 +35,19 @@ const Calculator: React.FC<{}> = () => {
                 <Button label="-" position={[3, 3]} />
                 <Button label="+" position={[3, 4]} />
                 <Button label="=" position={[3, 5]} />
-                <Button buttonType={ButtonType.Number} label="9" position={[2, 2]} />
-                <Button buttonType={ButtonType.Number} label="8" position={[1, 2]} />
-                <Button buttonType={ButtonType.Number} label="7" position={[0, 2]} />
-                <Button buttonType={ButtonType.Number} label="6" position={[2, 3]} />
-                <Button buttonType={ButtonType.Number} label="5" position={[1, 3]} />
-                <Button buttonType={ButtonType.Number} label="4" position={[0, 3]} />
-                <Button buttonType={ButtonType.Number} label="3" position={[2, 4]} />
-                <Button buttonType={ButtonType.Number} label="2" position={[1, 4]} />
-                <Button buttonType={ButtonType.Number} label="1" position={[0, 4]} />
-                <Button buttonType={ButtonType.Number} label="0" position={[0, 5]} width={3} />
+                <Button type={ButtonType.Number} label="9" position={[2, 2]} />
+                <Button type={ButtonType.Number} label="8" position={[1, 2]} />
+                <Button type={ButtonType.Number} label="7" position={[0, 2]} />
+                <Button type={ButtonType.Number} label="6" position={[2, 3]} />
+                <Button type={ButtonType.Number} label="5" position={[1, 3]} />
+                <Button type={ButtonType.Number} label="4" position={[0, 3]} />
+                <Button type={ButtonType.Number} label="3" position={[2, 4]} />
+                <Button type={ButtonType.Number} label="2" position={[1, 4]} />
+                <Button type={ButtonType.Number} label="1" position={[0, 4]} />
+                <Button type={ButtonType.Number} label="0" position={[0, 5]} width={3} />
             </Grid>
         </Container>
     );
-/*
-    function newFunction(): [any] {
-        return useState <Array<CalcInput>([]);
-    }
-*/
 };
+
 export default Calculator;

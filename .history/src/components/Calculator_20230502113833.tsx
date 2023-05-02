@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button, {ButtonType} from './Button';
-import Calc, { CalcInput } from '../modules/calc';
+import { Calc , CalcInput } from '../modules/calc';
 
 
 const Container = styled.div``;
@@ -49,10 +49,9 @@ const Calculator: React.FC<{}> = () => {
             </Grid>
         </Container>
     );
-/*
+
     function newFunction(): [any] {
         return useState <Array<CalcInput>([]);
     }
-*/
 };
 export default Calculator;

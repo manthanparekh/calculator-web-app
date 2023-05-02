@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ElementType } from 'react';
 import styled from 'styled-components'
 
 export enum ButtonType {
@@ -6,8 +6,8 @@ export enum ButtonType {
     Operation 
 }
 
-type Props = React.HTMLProps<HTMLDivElement> & {
-    buttonType?: ButtonType;
+type Props = React.HTMLProps<HTMLButtonElement> & {
+    ButtonType?: ButtonType;
     label: string;
     position?: [x: number, y: number];
     width?: number;
@@ -20,7 +20,7 @@ const StyledButton = styled.button`
     font-size: 24px;
 `;
 
-const Button: React.FC<Props> = ({ buttonType = ButtonType.Operation , label, position, width }) => {
+const Button: React.FC<Props> = ({ type = ButtonType.Operation , label, position, width }) => {
     const styles: React.CSSProperties = {};
     if (position) {
         styles.gridColumnStart = position[0] + 1; 
@@ -31,7 +31,7 @@ const Button: React.FC<Props> = ({ buttonType = ButtonType.Operation , label, po
         styles.gridColumnEnd = `span ${width}`;
     }
 
-    if (buttonType === ButtonType.Number) {
+    if (type === ButtonType.Number) {
         styles.color = '#000';
         styles.background = '#ADC178';  
     }
