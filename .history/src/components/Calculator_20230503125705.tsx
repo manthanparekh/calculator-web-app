@@ -61,5 +61,10 @@ const Calculator: React.FC<{}> = () => {
             </Grid>
         </Container>
     );
+/*
+    function newFunction(): [any] {
+        return useState <Array<CalcInput>([]);
+    }
+*/
 };
 export default Calculator;

@@ -47,7 +47,7 @@ const getOperationsBuilder = (inputs: Array<CalcInput>): OperationsBuilder => {
                     } else {
                         return {
                             operations: [...builder.operations, builder.working],
-                            working: { operator: input.operator, value: 0 },
+                            working: { operator: input.operator, value: null },
                         }; 
                     }
             }

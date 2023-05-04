@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button, {ButtonType} from './Button';
 import Calc, { CalcInput, InputType, OperatorType } from '../modules/calc';
+import onClick from '../components/Button';
 
 
 const Container = styled.div``;

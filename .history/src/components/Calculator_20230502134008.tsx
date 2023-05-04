@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button, {ButtonType} from './Button';
-import Calc, { CalcInput, InputType, OperatorType } from '../modules/calc';
+import Calc, { CalcInput, InputType } from '../modules/calc';
 
 
 const Container = styled.div``;
@@ -25,29 +25,21 @@ const Display = styled.div`
 const Calculator: React.FC<{}> = () => {
     const [inputs, setInputs] = useState<Array<CalcInput>>([]);
     const state = Calc.getState(inputs);
-    console.log(inputs);
 
-    const appendInput = (input: CalcInput): void => {
-        setInputs((prev) => [...prev, input]);
-    }
-
-    const handelNumerical = (value: number) => () =>
-        appendInput({ type: InputType.Numerical, value });
-    
-    const handelOperator = (operator: OperatorType) => () =>
-        appendInput({ type: InputType.Operator, operator }); 
-
+    const handelNumerical = (value: number) = () => {
+        setInputs((prev) => [...prev, { type: InputType.Numerical, value }]);
+    };
     return (
         <Container>
             <Grid>
                 <Display>{state.displayValue}</Display>
                 <Button label="AC" position={[0, 1]} />
                 <Button label="Undo" position={[1, 1]} width={2} />
-                <Button label="/" position={[3, 1]} onClick={handelOperator(OperatorType.Divide)} />
-                <Button label="x" position={[3, 2]} onClick={handelOperator(OperatorType.Multiply)}/>
-                <Button label="-" position={[3, 3]} onClick={handelOperator(OperatorType.Subtract)}/>
-                <Button label="+" position={[3, 4]} onClick={handelOperator(OperatorType.Add)}/>
-                <Button label="=" position={[3, 5]} onClick={handelOperator(OperatorType.Equals)} />
+                <Button label="/" position={[3, 1]} />
+                <Button label="x" position={[3, 2]} />
+                <Button label="-" position={[3, 3]} />
+                <Button label="+" position={[3, 4]} />
+                <Button label="=" position={[3, 5]} />
                 <Button buttonType={ButtonType.Number} label="9" position={[2, 2]} onClick={handelNumerical(9)} />
                 <Button buttonType={ButtonType.Number} label="8" position={[1, 2]} onClick={handelNumerical(8)}/>
                 <Button buttonType={ButtonType.Number} label="7" position={[0, 2]} onClick={handelNumerical(7)}/>
@@ -61,5 +53,10 @@ const Calculator: React.FC<{}> = () => {
             </Grid>
         </Container>
     );
+/*
+    function newFunction(): [any] {
+        return useState <Array<CalcInput>([]);
+    }
+*/
 };
 export default Calculator;

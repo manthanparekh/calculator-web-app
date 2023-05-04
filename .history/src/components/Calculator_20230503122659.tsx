@@ -27,7 +27,7 @@ const Calculator: React.FC<{}> = () => {
     const state = Calc.getState(inputs);
     console.log(inputs);
 
-    const appendInput = (input: CalcInput): void => {
+    const appendInput = (input: CalcInput): => {
         setInputs((prev) => [...prev, input]);
     }
 
@@ -61,5 +61,10 @@ const Calculator: React.FC<{}> = () => {
             </Grid>
         </Container>
     );
+/*
+    function newFunction(): [any] {
+        return useState <Array<CalcInput>([]);
+    }
+*/
 };
 export default Calculator;

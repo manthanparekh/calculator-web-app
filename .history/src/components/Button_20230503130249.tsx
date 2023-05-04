@@ -20,7 +20,7 @@ const StyledButton = styled.button`
     font-size: 24px;
 `;
 
-const Button: React.FC<Props> = ({ buttonType = ButtonType.Operation, label, position, width, onClick }) => {
+const Button: React.FC<Props> = ({ buttonType = ButtonType.Operation, children, label, position, width, onClick, }) => {
     const styles: React.CSSProperties = {};
     if (position) {
         styles.gridColumnStart = position[0] + 1;

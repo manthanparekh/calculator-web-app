@@ -36,7 +36,7 @@ const Button: React.FC<Props> = ({ buttonType = ButtonType.Operation, label, pos
         styles.background = '#ADC178';
     }
     return (
-        <StyledButton onClick={onClick} style={styles}>{label}</StyledButton>
+        <StyledButton onClickCapture={onClick} style={styles}>{label}</StyledButton>
     );
     
 };

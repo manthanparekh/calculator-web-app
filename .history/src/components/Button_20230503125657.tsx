@@ -20,10 +20,10 @@ const StyledButton = styled.button`
     font-size: 24px;
 `;
 
-const Button: React.FC<Props> = ({ buttonType = ButtonType.Operation, label, position, width, onClick }) => {
+const Button: React.FC<Props> = ({ buttonType = ButtonType.Operation, children, label, position, width, onClick, }) => {
     const styles: React.CSSProperties = {};
     if (position) {
-        styles.gridColumnStart = position[0] + 1;
+        styles.gridColumnStart = position[0] + 1; 
         styles.gridRowStart = position[1] + 1;
     }
 
@@ -33,12 +33,11 @@ const Button: React.FC<Props> = ({ buttonType = ButtonType.Operation, label, pos
 
     if (buttonType === ButtonType.Number) {
         styles.color = '#000';
-        styles.background = '#ADC178';
+        styles.background = '#ADC178';  
     }
     return (
         <StyledButton onClick={onClick} style={styles}>{label}</StyledButton>
-    );
-    
-};
+    )
+}
 
 export default Button;

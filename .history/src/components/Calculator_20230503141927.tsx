@@ -37,6 +37,11 @@ const Calculator: React.FC<{}> = () => {
     const handelOperator = (operator: OperatorType) => () =>
         appendInput({ type: InputType.Operator, operator }); 
 
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    console.log(event.target);
+    console.log(event.currentTarget);
+    };
+
     return (
         <Container>
             <Grid>

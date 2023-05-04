@@ -25,17 +25,10 @@ const Display = styled.div`
 const Calculator: React.FC<{}> = () => {
     const [inputs, setInputs] = useState<Array<CalcInput>>([]);
     const state = Calc.getState(inputs);
-    console.log(inputs);
 
-    const appendInput = (input: CalcInput): void => {
-        setInputs((prev) => [...prev, input]);
-    }
-
-    const handelNumerical = (value: number) => () =>
-        appendInput({ type: InputType.Numerical, value });
-    
-    const handelOperator = (operator: OperatorType) => () =>
-        appendInput({ type: InputType.Operator, operator }); 
+    const handelNumerical = (value: number) => {
+        setInputs((prev) => [...prev, { type: InputType.Numerical, value }]);
+    };
 
     return (
         <Container>
@@ -61,5 +54,10 @@ const Calculator: React.FC<{}> = () => {
             </Grid>
         </Container>
     );
+/*
+    function newFunction(): [any] {
+        return useState <Array<CalcInput>([]);
+    }
+*/
 };
 export default Calculator;

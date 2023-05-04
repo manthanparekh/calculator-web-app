@@ -7,13 +7,6 @@ test('display value 0 when no input', () => {
     expect(state.displayValue).toEqual(0);
 });
 
-test('display value on input', () => { 
-    const inputs: Array<CalcInput> = [{ type: InputType.Numerical, value: 1}];
-    const state = Calc.getState(inputs);
-
-    expect(state.displayValue).toEqual(1);
-});
-
 test('generates operations', () => {
     const inputs: Array<CalcInput> = [
         { type: InputType.Numerical, value: 1 },
