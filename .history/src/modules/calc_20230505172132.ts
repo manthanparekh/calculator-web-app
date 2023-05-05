@@ -34,7 +34,7 @@ const getOperationsBuilder = (inputs: Array<CalcInput>): OperationsBuilder => {
         (builder, input) => {
             switch (input.type) {
                 case InputType.Numerical:
-                    const prevValue = builder.working.value || 0;
+                    const prevValue = builder.working?.value || 0;
                     const newValue = prevValue * 10 + input.value;
                     return { ...builder, working: { ...builder.working, value: newValue } };
             

@@ -16,7 +16,7 @@ const Grid = styled.div`
 const Display = styled.div`
     background: #fff;
     border-radius: 8px;
-    font-size: 50px;
+    fond-size: 70px;
     grid-column-end: span 4;
     padding: 30px 24px;
     text-align: right;

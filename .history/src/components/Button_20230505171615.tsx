@@ -41,7 +41,7 @@ const Button: React.FC<Props> = ({ buttonType = ButtonType.Operation, label, pos
     }
     const newLocal = this;
     return (
-        <StyledButton onClick={onClick} style={styles}>{label}</StyledButton>
+        <StyledButton onClick={Button} style={styles}>{label}</StyledButton>
     );
     
 };

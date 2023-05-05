@@ -1,4 +1,3 @@
-import { type } from 'os';
 import React from 'react';
 import styled from 'styled-components'
 
@@ -12,10 +11,7 @@ type Props = React.HTMLProps<HTMLDivElement> & {
     label: string;
     position?: [x: number, y: number];
     width?: number;
-    onClick: () => void;
 }
-
-
 const StyledButton = styled.button`
     background: #F0EAD2;
     color: #000;
@@ -41,7 +37,7 @@ const Button: React.FC<Props> = ({ buttonType = ButtonType.Operation, label, pos
     }
     const newLocal = this;
     return (
-        <StyledButton onClick={onClick} style={styles}>{label}</StyledButton>
+        <StyledButton buttonClick={onClick} style={styles}>{label}</StyledButton>
     );
     
 };

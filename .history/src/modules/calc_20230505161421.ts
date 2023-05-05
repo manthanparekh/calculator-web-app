@@ -34,7 +34,7 @@ const getOperationsBuilder = (inputs: Array<CalcInput>): OperationsBuilder => {
         (builder, input) => {
             switch (input.type) {
                 case InputType.Numerical:
-                    const prevValue = builder.working.value || 0;
+                    const prevValue = builder.working?.value || 0;
                     const newValue = prevValue * 10 + input.value;
                     return { ...builder, working: { ...builder.working, value: newValue } };
             
@@ -86,6 +86,7 @@ const getState = (inputs: Array<CalcInput>): CalcState => {
 
     switch (lastOperation.operator) {
         case OperatorType.Equals: 
+            //const total = operations.reduce<number>((sum, operation) => sum + operation.value, 0);
             return { displayValue: total };
         default:
             return { displayValue: lastInput && lastInput.type === InputType.Numerical ? builder.working.value : total,} 
